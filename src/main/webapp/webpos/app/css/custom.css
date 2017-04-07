@@ -1,0 +1,28 @@
+/*!
+ * 自定义css
+ * 
+ */
+ 
+ .topnavbar .navbar-header .brand-logo-collapsed{
+ 	padding:16px 15px;
+ }
+ 
+ .wrapper > .aside{
+ 	width:130px;
+ }
+ 
+.wrapper > .aside .aside-inner{
+	width:130px;
+}
+
+.wrapper > section, .wrapper > footer{
+	margin-left: 130px;
+}
+
+.sidebar > ul > .ng-scope > a{
+	font-size: 1.2em;
+}
+
+.sidebar > .nav > li > a, .sidebar > .nav > li > .nav-item{
+	padding:15px 24px;
+}

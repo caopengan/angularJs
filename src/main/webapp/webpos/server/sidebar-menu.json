@@ -1,0 +1,32 @@
+[
+  {
+    "text": "收银",
+    "sref": "app.cashier",
+    "icon": "icon-speedometer",
+    "translate": "sidebar.nav.Cashier"
+  },
+  {
+    "text": "销售",
+    "sref": "app.widgets",
+    "icon": "icon-grid",
+    "translate": "sidebar.nav.SALE"
+  },
+  {
+    "text": "导购",
+    "sref": "#",
+    "icon": "icon-layers",
+    "translate":"sidebar.nav.ShoppingGuide"
+  },
+  {
+    "text": "客流",
+    "sref": "#",
+    "icon": "icon-chemistry",
+    "translate": "sidebar.nav.PassengerFlow"
+  },
+  {
+    "text": "换班",
+    "sref": "#",
+    "icon": "icon-note",
+    "translate": "sidebar.nav.Shift"
+  }
+]
