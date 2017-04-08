@@ -2,31 +2,31 @@
   {
     "text": "收银",
     "sref": "app.cashier",
-    "icon": "icon-speedometer",
+    "image":"app/img/ic_cashier_pressed.png",
     "translate": "sidebar.nav.Cashier"
   },
   {
     "text": "销售",
-    "sref": "app.widgets",
-    "icon": "icon-grid",
+    "sref": "app.sale",
+    "image":"app/img/ic_menu_order_normal.png",
     "translate": "sidebar.nav.SALE"
   },
   {
     "text": "导购",
-    "sref": "#",
-    "icon": "icon-layers",
+    "sref": "app.shoppingGuide",
+    "image":"app/img/ic_menu_shopping_guide_normal.png",
     "translate":"sidebar.nav.ShoppingGuide"
   },
   {
     "text": "客流",
-    "sref": "#",
-    "icon": "icon-chemistry",
+    "sref": "app.passengerFlow",
+    "image":"app/img/ic_menu_flow_normal.png",
     "translate": "sidebar.nav.PassengerFlow"
   },
   {
     "text": "换班",
-    "sref": "#",
-    "icon": "icon-note",
+    "sref": "app.shift",
+    "image":"app/img/ic_menu_sign_out_normal.png",
     "translate": "sidebar.nav.Shift"
   }
 ]

@@ -84,7 +84,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
   $locationProvider.html5Mode(false);
 
   // defaults to dashboard
-  $urlRouterProvider.otherwise('/app/dashboard');
+  $urlRouterProvider.otherwise('/app/cashier');
 
   // 
   // Application Routes
@@ -108,29 +108,25 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'Cashier',
         templateUrl: helper.basepath('cashier.html')
     })
-    .state('app.dashboard_v2', {
-        url: '/dashboard_v2',
-        title: 'Dashboard v2',
-        templateUrl: helper.basepath('dashboard_v2.html'),
-        controller: ["$rootScope", function($rootScope) { $rootScope.app.layout.isCollapsed = true; }],
-        resolve: helper.resolveFor('flot-chart','flot-chart-plugins')
+    .state('app.sale', {
+        url: '/sale',
+        title: 'Sale',
+        templateUrl: helper.basepath('sale.html')
     })
-    .state('app.dashboard_v3', {
-        url: '/dashboard_v3',
-        title: 'Dashboard v3',
-        templateUrl: helper.basepath('dashboard_v3.html'),
-        resolve: helper.resolveFor('flot-chart','flot-chart-plugins', 'vector-map', 'vector-map-maps')
+    .state('app.shoppingGuide', {
+        url: '/shoppingGuide',
+        title: 'ShoppingGuide',
+        templateUrl: helper.basepath('shoppingGuide.html')
     })
-    .state('app.widgets', {
-        url: '/widgets',
-        title: 'Widgets',
-        templateUrl: helper.basepath('widgets.html'),
-        resolve: helper.resolveFor('loadGoogleMapsJS', function() { return loadGoogleMaps(); }, 'ui.map')
+    .state('app.passengerFlow', {
+        url: '/passengerFlow',
+        title: 'PassengerFlow',
+        templateUrl: helper.basepath('passengerFlow.html')
     })
-    .state('app.buttons', {
-        url: '/buttons',
-        title: 'Buttons',
-        templateUrl: helper.basepath('buttons.html')
+    .state('app.shift', {
+        url: '/shift',
+        title: 'Shift',
+        templateUrl: helper.basepath('shift.html')
     })
     .state('app.colors', {
         url: '/colors',

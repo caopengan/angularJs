@@ -24,5 +24,80 @@
 }
 
 .sidebar > .nav > li > a, .sidebar > .nav > li > .nav-item{
-	padding:15px 24px;
+	padding:15px 45px;
+}
+
+/* 定义直角 */
+.right-angle {
+    /* border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important; */
+    border-radius:0 !important;
+}
+/* 定义表格的表头字体居中显示 */
+.wp-text-center > tr >th{
+	text-align: center !important;
+}
+
+.pd20{
+	padding: 20px;
+}
+
+.h20{
+	height: 20px;
+}
+
+.dispaly-inline{
+	display: inline;
+}
+.wp-input{
+	box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
+	width:58%;
+}
+
+.wp-input-div{
+	width:66%;
+}
+
+.radius-left{
+	border-top-left-radius:100px;
+	border-bottom-left-radius:100px;
+	padding: 6px;
+}
+.radius-right{
+	border-top-right-radius:100px;
+	border-bottom-right-radius:100px;
+	padding: 6px;
+}
+.wp-input-group{
+	display: inline-table;
+}
+.radius-left:hover,.radius-right:hover{
+	cursor: pointer;
+}
+
+.clear-input{
+	display: inline; 
+	position: absolute; 
+	width: 16px; 
+	height: 16px; 
+	margin: 10px 0 0 -20px; 
+	/* background: url(../img/ic_clear_normal.png) no-repeat;  */
+	outline: none; 
+	z-index: 2;
+	/* background-image: url(../img/ic_clear_normal.png); 
+	background-position: 50% 50%; 
+	background-repeat:no-repeat; */
+}
+.user-level-label{
+	width:35px;
+	position: absolute; 
+	margin: 10px 0 0 -60px;
+	z-index: 2;
+	background: #fdd331;
+	text-align:center
+}
+.user-label{
+	border-radius:100px;
+	padding:4px 15px 4px 15px;
+	display: inline-table;
 }
