@@ -29,81 +29,50 @@
 		            </tr>
 		         </thead>
 		         <tbody>
-		            <tr>
-		               <td>
+		         	<tr ng-if="shoppingCart == ''">
+		         		<td colspan="7">
+		         			<img ng-src="app/img/ic_cart_empty.png">
+		         			<p style="color:#c8d7e6;font-size:1.5em;font-weight:700;">请添加购物商品,进行结账 </p>
+		         		</td>
+		         	</tr>
+		         	<tr ng-repeat="sc in shoppingCart">
+		         		<td>
 		                  <div class="media">
-		                     <img src="app/img/user/01.jpg" alt="Image" class="img-responsive img-circle" />
+		                     <img ng-src="{{sc.productImage}}" alt="Image" class="img-responsive img-circle" />
 		                  </div>
 		               </td>
-		               <td>@twitter</td>
-		               <td>Larry</td>
-		               <td><input class="form-control form-control-rounded dispaly-inline wp-input" type="text"></td>
+		               <td>{{sc.productName}}
+		               		<p><small class="text-muted" style="padding:0 10px 0 10px;">{{sc.color}}</small>
+		               			<small class="text-muted" style="padding:0 10px 0 10px;">{{sc.size}}</small>
+		               			<small class="text-muted" style="padding:0 10px 0 10px;">{{sc.styleNumber}}</small>
+	               			</p>
+		               </td>
+		               <td>{{sc.tagPrice | number:2 }}</td>
+		               <td><input class="form-control form-control-rounded dispaly-inline wp-input text-center" type="text" ng-model="sc.currentPrice" check-price="check-price"></td>
 		               <td>
 		               	   <div class="input-group wp-input-div wp-input-group">
-								<span class="input-group-addon radius-left"><img ng-src="app/img/ic_sub_normal.png" class="h20"></span>
-								<input class="form-control" type="text">
-								<span class="input-group-addon radius-right"><img ng-src="app/img/ic_plus_normal.png" class="h20"></span>
-							</div>
+								<span class="input-group-addon radius-left" number-operation="number-operation"><img ng-src="app/img/ic_sub_normal.png" class="h20"></span>
+								<input class="form-control text-center" type="text" ng-model="sc.number" check-number="check-number">
+								<span class="input-group-addon radius-right" number-operation="number-operation"><img ng-src="app/img/ic_plus_normal.png" class="h20"></span>
+						  </div>
 		               </td>
 		               <td class="text-center">
-		                  <div data-label="25%" class="radial-bar radial-bar-25 radial-bar-xs"></div>
+		                  {{sc.currentPrice*sc.number | number:2}}
 		               </td>
-		               <td><img ng-src="app/img/ic_delete_normal.png" class="h20"></td>
-		            </tr>
-		            <tr>
-		               <td>
-		                  <div class="media">
-		                     <img src="app/img/user/02.jpg" alt="Image" class="img-responsive img-circle" />
-		                  </div>
-		               </td>
-		               <td>@mdo</td>
-		               <td>Mark</td>
-		               <td><input class="form-control form-control-rounded dispaly-inline wp-input" type="text"></td>
-		               <td>
-							<div class="input-group wp-input-div wp-input-group">
-								<span class="input-group-addon radius-left"><img ng-src="app/img/ic_sub_normal.png" class="h20"></span>
-								<input class="form-control" type="text">
-								<span class="input-group-addon radius-right"><img ng-src="app/img/ic_plus_normal.png" class="h20"></span>
-							</div>
-						</td>
-		               <td class="text-center">
-		                  <div data-label="50%" class="radial-bar radial-bar-50 radial-bar-xs"></div>
-		               </td>
-		               <td><img ng-src="app/img/ic_delete_normal.png" class="h20"></td>
-		            </tr>
-		            <tr>
-		               <td>
-		                  <div class="media">
-		                     <img src="app/img/user/03.jpg" alt="Image" class="img-responsive img-circle" />
-		                  </div>
-		               </td>
-		               <td>@fat</td>
-		               <td>Jacob</td>
-		               <td><input class="form-control form-control-rounded dispaly-inline wp-input" type="text"></td>
-		               <td>
-		               	  <div class="input-group wp-input-div wp-input-group">
-								<span class="input-group-addon radius-left"><img ng-src="app/img/ic_sub_normal.png"  class="h20"></span>
-								<input class="form-control" type="text">
-								<span class="input-group-addon radius-right"><img ng-src="app/img/ic_plus_normal.png" class="h20" ></span>
-							</div>
-		               </td>
-		               <td class="text-center">
-		                  <div data-label="80%" class="radial-bar radial-bar-80 radial-bar-xs"></div>
-		               </td>
-		               <td><img ng-src="app/img/ic_delete_normal.png" class="h20"></td>
-		            </tr>
-		            <tr>
+		               <td><img ng-src="app/img/ic_delete_normal.png" class="h20" ng-click="delProduct($index,sc.productId)"></td>
+		         	</tr>
+		            <tr ng-if="shoppingCart != ''">
 		               <td colspan="4"></td>
-		               <td><h4 style="color: #ff6c40;">1</h4></td>
-		               <td><h4 style="color: #ff6c40;">18.0</h4></td>
-		               <td><img ng-src="app/img/ic_delete_normal.png" class="h20"></td>
+		               <td><h4 style="color: #ff6c40;">{{shoppingCart | sumOfNumber:'number' }}</h4></td>
+		               <td><h4 style="color: #ff6c40;">{{shoppingCart | sumOfPrice:'currentPrice':'number' | number:2}}</h4></td>
+		               <td><img ng-src="app/img/ic_delete_normal.png" class="h20" ng-click="clearShoppingCart();"></td>
 		            </tr>
 		         </tbody>
 		      </table>
          </li>
          <li class="list-group-item right-angle" style="background:#f5f7fa;">
             <div class="row">
-               <div class="col-xs-2">
+               <div class="col-lg-2 col-xs-4">
                   <div class="input-group">
 					<span class="input-group-btn" style="border:1px solid #ddd;padding:5px;border-right:0;">
 						<img ng-src="app/img/ic_member_normal.png" class="h20">
@@ -114,7 +83,7 @@
 					<!-- <a class="clear-input"></a> -->
 				  </div>
                </div>
-               <div class="col-xs-2">
+               <div class="col-lg-2 col-xs-2">
                		<div class="label label-success user-label">跑步</div>
                		<div class="label label-success user-label">健身达人</div>
                		<div class="label label-info user-label">小正太</div>
@@ -123,30 +92,72 @@
                		<div class="label label-success user-label">驴友</div>
                		<div class="label label-danger user-label">二不愣</div>
                </div>
-               <div class="col-xs-2">
+               <div class="col-lg-3 col-xs-4">
                		<div class="input-group wp-input-div wp-input-group">
 						<input class="form-control radius-left" type="text" placeholder="输入标签信息" style="border-right:0">
 						<span class="input-group-addon radius-right" style="background-color:#fff;"><img ng-src="app/img/ic_plus_normal.png" class="h20" ></span>
 					</div>
                </div>
-               <div class="col-xs-2">
-               		<p>实收金额:<span style="font-size: 2.0em;">0.00</span></p>
+               <div class="col-lg-2 col-xs-2 pull-right" style="font-size:1.2em;padding-top:10px;">
+               		<div class="row">
+               			<div class="col-lg-6 pull-right" style="word-wrap:break-word;color:#ff643c;font-weight:900;">{{shoppingCart | sumOfPrice:'currentPrice':'number' |number:2}}</div>
+               			<div class="col-lg-6 pull-right text-center">实收金额:</div>
+               		</div>
+               		<!-- <p>实收金额:<span style="font-size: 2.0em;">0.00</span></p> -->
                </div>
             </div>
          </li>
          <li class="list-group-item right-angle" style="background:#f5f7fa;padding-bottom:0;padding-top:0;margin-top:0;margin-bottom:0">
             <div class="row">
-               <div class="col-xs-1">
+               <div class="col-lg-1 col-xs-2">
                		<div style="padding-top:10px;padding-bottom:10px;width:53%;border-right:1px solid #e4eaec;">
                			<img ng-src="app/img/ic_pending_order.png" style="height:50px;">
-               			<div class="label label-danger" style="border-radius:100px;">2</div>
+               			<div class="label label-danger" style="border-radius:100px;position:absolute;margin:-3px 0 0 -15px;">2</div>
                			<!-- <div class="circle circle-danger circle-lg text-left">12</div> -->
                		</div>
                </div>
+               <div class="col-md-2">
+		         <!-- START button group-->
+		         <div dropdown="dropdown" class="btn-group" style="padding-top:18px;">
+		            <button dropdown-toggle="" class="btn btn-default" style="padding-left:5px;">
+		            	<img ng-src="app/img/ic_salesman_normal.png" style="height:20px;padding-right:5px;">选择销售员 <b class="caret" style="margin-left:25px;"></b>
+		            </button>
+		            <ul role="menu" class="dropdown-menu animated swing">
+		               <li><a href="#">源小一</a></li>
+		               <li><a href="#">源小二</a></li>
+		               <li><a href="#">源小三</a></li>
+		               <li><a href="#">源小四</a></li>
+		            </ul>
+		         </div>
+		         <!-- END button group-->
+			   </div>
+			   <div class="col-md-2" style="margin-top:15px;">
+				   	<div style="padding:10px;background:#fff">
+				   		<img ng-src="app/img/ic_cashier_normal.png" style="height:20px;">{{user.name}}
+				   	</div>
+			   </div>
+			   <div class="col-md-4 pull-right">
+			   		<div class="row">
+			   			<div class="col-lg-3 pull-right settle-accounts">
+			   				结账
+			   			</div>
+			   			<div class="col-lg-2 pull-right pend-btn">
+			   				挂单
+			   			</div>
+			   		</div>
+			   </div>
             </div>
          </li>		
       </ul>
    </div>
 </div>
 
-
+<script type="text/ng-template" id="modalDialogId">
+      <div class="ngdialog-message">
+	  		<h3>ngDialog modal example</h3>
+			<p>The<code>.openConfirm()</code>function returns a promise that is resolved when confirmed and rejected when otherwise closed. Modal dialogs by default do not close when clicked outside the dialog or when hitting escape. This can ofcourse be overridden when opening the dialog.</p>
+			<p>Confirm can take a value. Enter one here for example and see the console output:<input ng-model="confirmValue"/></p>
+			<button type="button" ng-click="confirm(confirmValue)" class="btn btn-primary mr">Confirm</button>
+			<button type="button" ng-click="closeThisDialog('button')" class="btn btn-default">Cancel</button>
+	  </div>
+   </script>

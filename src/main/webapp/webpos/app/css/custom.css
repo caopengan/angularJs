@@ -101,3 +101,29 @@
 	padding:4px 15px 4px 15px;
 	display: inline-table;
 }
+.pend-btn{
+	padding:25px;
+	background:#a9b9c8;
+	text-align:center;
+	color:#fff;
+	font-weight:800;
+	font-size:15px;
+	cursor:pointer;
+}
+.pend-btn:hover{
+	background: #b8c5d2;
+}
+.settle-accounts{
+	padding:25px;
+	background:#ff643c;
+	text-align:center;
+	color:#fff;
+	font-weight:800;
+	font-size:15px;cursor:pointer;
+}
+.settle-accounts:hover{
+	background:#fd8162;
+}
+.sidebar > .nav > li:hover{
+	border-left: 3px solid #ffffff;
+}

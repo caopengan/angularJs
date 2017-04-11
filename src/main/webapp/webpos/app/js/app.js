@@ -1,6 +1,6 @@
 /*!
  * 
- * Angle - Bootstrap Admin App + AngularJS
+ * WebPos - Bootstrap Admin App + AngularJS
  * 
  * Author: @themicon_co
  * Website: http://themicon.co
@@ -13,7 +13,7 @@ if (typeof $ === 'undefined') { throw new Error('This application\'s JavaScript 
 // APP START
 // ----------------------------------- 
 
-var App = angular.module('angle', [
+var App = angular.module('webpos', [
     'ngRoute',
     'ngAnimate',
     'ngStorage',
@@ -106,7 +106,9 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
     .state('app.cashier', {
         url: '/cashier',
         title: 'Cashier',
-        templateUrl: helper.basepath('cashier.html')
+        templateUrl: helper.basepath('cashier.html'),
+        controller:'cashierController',
+        resolve: helper.resolveFor('cashier','ngDialog')
     })
     .state('app.sale', {
         url: '/sale',
@@ -867,7 +869,8 @@ App
                                                   'vendor/ag-grid/dist/theme-fresh.css']},
       {name: 'ng-nestable',               files: ['vendor/ng-nestable/src/angular-nestable.js',
                                                   'vendor/nestable/jquery.nestable.js']},
-      {name: 'akoenig.deckgrid',          files: ['vendor/angular-deckgrid/angular-deckgrid.js']}
+      {name: 'akoenig.deckgrid',          files: ['vendor/angular-deckgrid/angular-deckgrid.js']},
+      {name:'cashier',					  files: ['app/js/controllers/cashier.js']}
     ]
   })
 ;
@@ -7613,10 +7616,10 @@ App.service('vectorMap', function() {
 // To run this code, edit file 
 // index.html or index.jade and change
 // html data-ng-app attribute from
-// angle to myAppName
+// webpos to myAppName
 // ----------------------------------- 
 
-var myApp = angular.module('myAppName', ['angle']);
+var myApp = angular.module('myAppName', ['webpos']);
 
 myApp.run(["$log", function($log) {
 
@@ -7640,4 +7643,8 @@ myApp.directive('oneOfMyOwnDirectives', function() {
 
 myApp.config(["$stateProvider", function($stateProvider /* ... */) {
   /* specific routes here (see file config.js) */
+}]);
+
+App.controller('CpaController',['$scope',function($scope){
+	alert(11111);
 }]);

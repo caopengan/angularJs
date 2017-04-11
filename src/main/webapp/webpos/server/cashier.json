@@ -1,0 +1,57 @@
+[
+  {
+  	"productId":"1",
+    "productImage": "https://erpimage.oss-cn-hangzhou.aliyuncs.com/92803df5-e9db-4a59-9da1-73ece1a77745.jpg?x-oss-process=image/resize,m_fixed,w_50,h_50",
+    "productName": "Salomon 萨洛蒙男女款户外竞赛越野跑鞋 S-LAB WINGS 8 391215",
+    "tagPrice":"1898.00",
+    "currentPrice": "1898.00",
+    "number": "1",
+    "styleNumber":"391215",
+    "color":"红色",
+    "size":"42"
+  },
+   {
+   	"productId":"2",
+    "productImage": "https://erpimage.oss-cn-hangzhou.aliyuncs.com/a656bc64-a39c-4742-a0d1-62061e841596?x-oss-process=image/resize,m_fixed,w_50,h_50",
+    "productName": "KAILAS凯乐石户外男女款排汗透气圆领速干T恤DG720120",
+    "tagPrice":"268.00",
+    "currentPrice": "268.00",
+    "number": "1",
+    "styleNumber":"DG720120",
+    "color":"蓝色",
+    "size":"XL"
+  },
+   {
+   	"productId":"3",
+    "productImage": "https://erpimage.oss-cn-hangzhou.aliyuncs.com/cef2a9a8-d381-4e05-9fb9-4e472af5c641.jpg?x-oss-process=image/resize,m_fixed,w_50,h_50",
+    "productName": "Fire－Maple火枫长气罐转接头 户外炉头接长气罐的转换接头连接头FMS-701",
+    "tagPrice":"18.00",
+    "currentPrice": "18.00",
+    "number": "2",
+    "styleNumber":"FMS-701",
+    "color":"黑色",
+    "size":"23"
+  },
+   {
+   	"productId":"4",
+    "productImage": "https://erpimage.oss-cn-hangzhou.aliyuncs.com/3bd12724-6878-49bd-b2db-f007c06e91f4.jpg?x-oss-process=image/resize,m_fixed,w_50,h_50",
+    "productName": "KAILAS凯乐石男款轻量羽绒外套(C1)KG310038",
+    "tagPrice":"2499.00",
+    "currentPrice": "2499.00",
+    "number": "1",
+    "styleNumber":"KG310038",
+    "color":"蓝色",
+    "size":"XXL"
+  },
+   {
+   	"productId":"5",
+    "productImage": "https://erpimage.oss-cn-hangzhou.aliyuncs.com/abc5dba6-7142-48c4-86c1-b90f1a9d3343.jpg?x-oss-process=image/resize,m_fixed,w_50,h_50",
+    "productName": "KAILAS凯乐石男款印花三合一冲锋衣KG110090",
+    "tagPrice":"1499.00",
+    "currentPrice": "1499.00",
+    "number": "1",
+    "styleNumber":"KG110090",
+    "color":"藏蓝色",
+    "size":"L"
+  }
+]
