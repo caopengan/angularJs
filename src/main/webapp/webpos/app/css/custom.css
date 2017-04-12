@@ -42,6 +42,10 @@
 	padding: 20px;
 }
 
+.pd10{
+	padding: 10px;
+}
+
 .h20{
 	height: 20px;
 }
@@ -51,11 +55,11 @@
 }
 .wp-input{
 	box-shadow:0 1px 1px rgba(0, 0, 0, 0.075) inset !important;
-	width:58%;
+	width:88%;
 }
 
 .wp-input-div{
-	width:66%;
+	width:86%;
 }
 
 .radius-left{
@@ -126,4 +130,77 @@
 }
 .sidebar > .nav > li:hover{
 	border-left: 3px solid #ffffff;
+}
+
+.search-btn{
+	background:#ff643c;
+	color:#ffffff;
+}
+.search-btn:hover{
+	background:#fd8162;
+	color:#ffffff;
+}
+
+/*dialog style*/
+.ngdialog-content{
+	padding: 0 !important;
+	text-align: center;
+}
+.ngdialog-message >ul{
+	padding: 0;
+}
+.cd-buttons::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+ol, ul {
+    list-style: outside none none;
+}
+.cd-buttons li {
+    float: left;
+    width: 50%;
+}
+.cd-buttons li:first-child a {
+    background: #ff643c none repeat scroll 0 0;
+    border-radius: 0 0 0 0.25em;
+}
+.cd-buttons li:first-child a:hover{
+	background:#fd8162;
+}
+.cd-buttons a {
+    color: #fff;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease 0s;
+}
+a {
+    text-decoration: none!important;
+}
+.cd-buttons li:last-child a {
+    background: #a9b9c8 none repeat scroll 0 0;
+    border-radius: 0 0 0.25em;
+}
+.cd-buttons li:last-child a :hover{
+    background: #b8c5d2 none repeat scroll 0 0;
+}
+/*挂单层*/
+.pending-btn-remove{
+	font-size: 12px;
+    padding: 2px 15px;
+}
+.pending-btn-remove:hover{
+	color:#fff;
+}
+.pending-btn-getOrder{
+	color:#fff;
+	font-size: 12px;
+    padding: 2px 15px;
+	background:#465564 none repeat scroll 0 0;
+}
+.pending-btn-getOrder:hover{
+	color:#fff;
+	background: #6b7783 none repeat scroll 0 0;
 }

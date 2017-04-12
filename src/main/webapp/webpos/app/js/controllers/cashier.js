@@ -1,16 +1,21 @@
 App.controller('cashierController',['$scope','$http','ngDialog',function($scope,$http,ngDialog){
-	$scope.totalNumber= 0;//单品总数
 	$scope.totalAmount= 0.00;//总金额
 	$scope.parseInt = parseInt;
+	$scope.pendingFlag = false;//是否显示挂单列表页面
+	$scope.searchFlag = true;//是否显示商品查询页面
+	//商品搜索
+	$scope.searchProduct = function(searchContent){
+		$scope.searchFlag = false;//显示商品查询页面
+		$http.get('server/products.json').success(function(data) {
+	      $scope.productList = data;
+	    }).error(function(){
+	    	alert("error");
+	    });
+	}
 	//查询购物车
 	$scope.getShoppingCart = function(){
 		$http.get('server/cashier.json').success(function(data) {
 	      $scope.shoppingCart = data;
-	      if(data != null){
-	    	  for(var i=0;i<data.length;i++){
-	    		  $scope.totalNumber += parseInt(data[i].number);
-	    	  }
-	      }
 	    }).error(function(){
 	    	alert("error");
 	    });
@@ -22,7 +27,6 @@ App.controller('cashierController',['$scope','$http','ngDialog',function($scope,
 	      template: 'modalDialogId',
 	      className: 'ngdialog-theme-default'
 	    }).then(function (value) {
-	    	alert(value);
 	    	$scope.shoppingCart.splice(index,1);
 	    }, function (reason) {
 	      console.log('Modal promise rejected. Reason: ', reason);
@@ -52,6 +56,23 @@ App.controller('cashierController',['$scope','$http','ngDialog',function($scope,
 	      controller: 'SecondModalCtrl'
 	    });
 	  };
+	  
+	//查看挂单列表
+	$scope.showPendingList = function(flag){
+		$scope.pendingFlag = flag;
+	}
+	
+	//挂单操作
+	$scope.pending = function(){
+		ngDialog.openConfirm({
+	      template: 'pendingModalDialogId',
+	      className: 'ngdialog-theme-default'
+	    }).then(function (value) {
+	      console.log('Modal promise resolved. Value: ', value);
+	    }, function (reason) {
+	      console.log('Modal promise rejected. Reason: ', reason);
+	    });
+	}
 }]);
 
 //求商品总数
