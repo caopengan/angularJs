@@ -108,7 +108,7 @@ function ($stateProvider, $locationProvider, $urlRouterProvider, helper) {
         title: 'Cashier',
         templateUrl: helper.basepath('cashier.html'),
         controller:'cashierController',
-        resolve: helper.resolveFor('cashier','ngDialog')
+        resolve: helper.resolveFor('cashier','ngDialog','infinite-scroll')
     })
     .state('app.sale', {
         url: '/sale',

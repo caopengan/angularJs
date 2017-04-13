@@ -6,12 +6,22 @@ App.controller('cashierController',['$scope','$http','ngDialog',function($scope,
 	//商品搜索
 	$scope.searchProduct = function(searchContent){
 		$scope.searchFlag = false;//显示商品查询页面
-		$http.get('server/products.json').success(function(data) {
-	      $scope.productList = data;
-	    }).error(function(){
-	    	alert("error");
-	    });
+		$scope.loadMore();
 	}
+	
+	//返回收银主界面
+	$scope.returnCashierView = function(){
+		$scope.searchFlag = true;
+		$scope.resetSearchProductPramas();
+	}
+	
+	//加入购物车
+	$scope.addShoppingCart = function(product,event){
+		$scope.shoppingCart.push(product);
+		$(event.target).css("display","none");
+		$(event.target).after("<span class='text-muted'>已加购</span>");
+	}
+	
 	//查询购物车
 	$scope.getShoppingCart = function(){
 		$http.get('server/cashier.json').success(function(data) {
@@ -73,6 +83,37 @@ App.controller('cashierController',['$scope','$http','ngDialog',function($scope,
 	      console.log('Modal promise rejected. Reason: ', reason);
 	    });
 	}
+	
+	//重置商品搜索页面用到的参数
+	$scope.resetSearchProductPramas = function(){
+		$scope.productList = [];
+		$scope.page = 0;
+		$scope.pageSize = 10;
+		$scope.busy = false;
+	}
+	
+	$scope.productList = [];
+	$scope.page = 0;
+	$scope.pageSize = 10;
+	$scope.busy = false;
+	//商品搜索页面鼠标滚动到底部时，触发加载更多
+	$scope.loadMore = function() {
+		$scope.busy = true;
+		$http.get('server/products.json').success(function(data) {
+       	   if($scope.page == 0){
+       		   for (var i = 0; i < ($scope.pageSize*($scope.page+1)); i++) {
+       			   $scope.productList.push(data[i]);
+               }
+       	   }else{
+       		   for (var i = ($scope.page+$scope.pageSize); i < ($scope.pageSize*($scope.page+1)); i++) {
+       			   $scope.productList.push(data[i]);
+               }
+       	   }
+       	    $scope.busy = false;
+            $scope.page += 1;
+  	     });
+	 };
+	
 }]);
 
 //求商品总数

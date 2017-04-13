@@ -208,7 +208,7 @@
 
 
 <!-- 查询商品页面 start -->
-<div class="row" ng-show="!searchFlag">
+<div class="row" ng-if="!searchFlag">
    <div class="col-lg-12">
       <!-- START List group -->
       <ul class="list-group">
@@ -228,8 +228,9 @@
          	<table id="table-ext-1" class="table table-bordered table-hover text-center">
 		         <thead class="bg-gray wp-text-center">
 		            <tr>
+		            	<th style="width:5">序号</th>
 		               <th style="width:10%;">商品图</th>
-		               <th style="width:30%;">商品名称</th>
+		               <th style="width:25%;">商品名称</th>
 		               <th style="width:10%">库存</th>
 		               <th style="width:10%;">吊牌价</th>
 		               <th style="width:10%;">现价</th>
@@ -237,7 +238,7 @@
 		               <th style="width:10%;">操作</th>
 		            </tr>
 		         </thead>
-		         <tbody>
+		         <tbody infinite-scroll='loadMore()' infinite-scroll-disabled='busy' infinite-scroll-distance='0' infinite-scroll-immediate-check='false'>
 		         	<tr ng-if="productList == ''">
 		         		<td colspan="7">
 		         			<img ng-src="app/img/ic_cart_empty.png">
@@ -245,6 +246,7 @@
 		         		</td>
 		         	</tr>
 		         	<tr ng-repeat="sc in productList">
+		         		<td>{{$index+1}}</td>
 		         		<td>
 		                  <div class="media">
 		                     <img ng-src="{{sc.productImage}}" alt="Image" class="img-responsive img-circle" />
@@ -261,7 +263,7 @@
 		               <td>{{sc.currentPrice}}</td>
 		               <td>无会员折扣</td>
 		               <td>
-		               		<button class="btn settle-accounts pending-btn-remove">加购</button>
+		               		<button class="btn settle-accounts pending-btn-remove" ng-click="addShoppingCart(sc,$event)"><em class="icon-basket" style="padding-right:5px;"></em>加购</button>
 		               </td>
 		         	</tr>
 		         </tbody>
@@ -269,6 +271,10 @@
          </li>
       </ul>
    </div>
+   <div class="return-btn" ng-click="returnCashierView()">
+   		<div class="icon-action-undo" style="padding-top:5px;"></div>
+   		<div style="margin-top:-7px;">返回</div>
+   	  </div>
 </div>
 <!-- 查询商品页面 end -->
 

@@ -123,7 +123,9 @@
 	text-align:center;
 	color:#fff;
 	font-weight:800;
-	font-size:15px;cursor:pointer;
+	font-size:15px;
+	cursor:pointer;
+	border-radius:0;
 }
 .settle-accounts:hover{
 	background:#fd8162;
@@ -199,8 +201,25 @@ a {
 	font-size: 12px;
     padding: 2px 15px;
 	background:#465564 none repeat scroll 0 0;
+	border-radius:0;
 }
 .pending-btn-getOrder:hover{
 	color:#fff;
 	background: #6b7783 none repeat scroll 0 0;
+}
+
+.return-btn{
+	background: #ff643c none repeat scroll 0 0;
+    bottom: 10px;
+    color: #fff;
+    height: 50px;
+    line-height: 45px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    width: 47px;
+    cursor: pointer;
+}
+.return-btn:hover{
+	background: #fd8162;
 }
